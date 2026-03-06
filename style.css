@@ -1,68 +1,162 @@
-body{
-  background: #0f172a;
+/* ----------------- Page background ----------------- */
+body {
+  background: #141414;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  padding-top:50px ;
+  margin: 0;
 }
-.container{
-  width: 350px;
+
+/* ----------------- Top navbar ----------------- */
+.navbar {
+  background: black;
+  padding: 15px 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #E50914;
   text-align: center;
 }
-input, button{
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
+
+/* ----------------- Main container ----------------- */
+.container {
+  max-width: 1200px; /* max width for large screens */
+  width: 95%;
+  margin: 50px auto;
+  text-align: center;
 }
-input{
+
+/* ----------------- Search box ----------------- */
+.search-box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* wraps on small screens */
+}
+
+.search-box input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
   background: #1e293b;
   color: white;
 }
-button{
-  background: #2563eb;
+
+.search-box button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #E50914;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
 }
-.movie-box{
+
+.search-box button:hover {
+  opacity: 0.85;
+}
+
+/* ----------------- Movie rows ----------------- */
+.movie-row {
+  margin-top: 30px;
+}
+
+.movie-row h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+/* Horizontal scroll container */
+.movies-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.movies-container::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+/* ----------------- Individual movie cards ----------------- */
+.movie-box {
+  min-width: 180px;  /* card width */
+  max-width: 220px;
   background: #1e293b;
-  margin-top: 35px;
   padding: 15px;
   border-radius: 8px;
   text-align: left;
+  flex-shrink: 0;    /* prevent shrinking in row */
+  transition: transform 0.3s;
 }
-.movie-box img{
+
+.movie-box:hover {
+  transform: scale(1.05);
+}
+
+.movie-box img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
+/* ----------------- Watch / Search buttons ----------------- */
+.watch-btn {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 5px;
+  padding: 8px 12px;
+  background: #E50914;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.watch-btn:hover {
+  opacity: 0.8;
+}
+
+/* ----------------- Responsive Breakpoints ----------------- */
+
+/* Mobile phones */
 @media (max-width: 480px) {
-  .container{
-    width: 90%;
+  .container {
+    width: 95%;
   }
-
-  body{
-    padding-top: 20px;
-  }
-
-  input, button{
+  .search-box input, .search-box button {
     font-size: 14px;
     padding: 10px;
   }
-}
-
-@media (min-width: 481px) and (max-width: 768px){
-  .container{
-    width: 70%;
+  .movie-box {
+    min-width: 140px;
+    max-width: 160px;
   }
 }
 
-@media (min-width: 1024px){
-  .container{
-    width: 400px;
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .movie-box {
+    min-width: 160px;
+    max-width: 180px;
+  }
+  .movie-row h2 {
+    font-size: 16px;
+  }
+}
+
+/* Desktops / large screens */
+@media (min-width: 769px) {
+  .container {
+    width: 95%;
+  }
+  .movie-box {
+    min-width: 200px;
+    max-width: 220px;
+  }
+  .movie-row h2 {
+    font-size: 18px;
   }
 }
